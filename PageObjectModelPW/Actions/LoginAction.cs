@@ -2,13 +2,17 @@
 using PageObjectModelPW.pages;
 
 namespace PageObjectModelPW.Actions;
-public static class LoginAction
-{
-    static readonly IPage page;
 
-    public static async Task EbnerEmployee()
+public class LoginAction(IPage _page)
+{
+    public readonly IPage Page = _page;
+
+    public async Task EbnerEmployeeLogin()
     {
-        await page.GetByText(Login.EBNER_employee).ClickAsync();
-        
+        if (await Page.GetByText(Login.Login_as_an_EBNER_employee).IsVisibleAsync())
+            await Page.GetByText(Login.Login_as_an_EBNER_employee).ClickAsync();
+
+        await Page.GetByText(Login.EBNER_employee).ClickAsync();
+        await Task.CompletedTask;
     }
 }
