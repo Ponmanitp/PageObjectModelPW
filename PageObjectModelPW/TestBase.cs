@@ -40,9 +40,13 @@ public class TestBase
             Headless = false,
             Args = ["--start-maximzed"]
         });
+
         Page = await Browser.NewPageAsync();
         // await Page.SetViewportSizeAsync(1400, 900);
-        await Page.GotoAsync("https://staging-hub.ebner.cc/auth/login");
+        var url = "https://staging-hub.ebner.cc/auth/login";
+        await Page.GotoAsync(url);
+        await Assertions.Expect(Page).ToHaveURLAsync(url);
+
         await Task.Delay(2000);
         var loginAction = new LoginAction(Page);
         await loginAction.EbnerEmployeeLogin();

@@ -12,7 +12,7 @@ public static class Dashboard
     public const string News = "News";
 
     //SideBar
-    public const string Dashboard_Link = "Dashboard";
+    public const string Dashboard_Link = "//span[normalize-space()='Dashboard']";
     public const string My_facilities = "My facilities";
     public const string My_documents = "My documents";
     public const string Visual_furnaces = "Visual Furnaces";
